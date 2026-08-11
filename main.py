@@ -4,7 +4,7 @@ import random
 from datetime import datetime, timezone, timedelta
 
 # ---------- 設定 ----------
-TARGET_EMAIL = "taisei.y1001@gmail.com"  # ★ここを友達のアドレスに書き換えてね！
+TARGET_EMAIL = "paapaaseizin@gmail.com"  # ★ここを友達のアドレスに書き換えてね！
 SEND_COUNT_PER_TIME = 1                # 各時間帯に何通送るか（例:朝に3通）
 # -------------------------
 
