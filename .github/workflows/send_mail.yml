@@ -1,0 +1,28 @@
+name: ホラーメール自動送信
+
+on:
+  schedule:
+    # cronはUTC時間で指定するので、日本時間に変換して記載
+    - cron: '0 22 * * *'   # 日本時間 7:00 (UTC 22:00)
+    - cron: '0 3 * * *'    # 日本時間 12:00 (UTC 3:00)
+    - cron: '0 12 * * *'   # 日本時間 21:00 (UTC 12:00)
+  workflow_dispatch:       # 手動でテスト実行するとき用（GitHub画面上からポチッとできる）
+
+jobs:
+  send-mail:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: コードをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Pythonをセットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: ライブラリをインストール
+        run: pip install requests
+
+      - name: スクリプトを実行
+        run: python main.py
